@@ -17,13 +17,13 @@ Sua missão é ler a conversa integral e **extrair** sinais quantitativos e qual
   - Se não houver número → **estime pelo tom** (promotor=9–10, neutro=7–8, detrator=0–6).  
   - Nesse caso, registre `"estimado": true` em `metadados`.  
 - **Qualidade do atendimento** = sentimento relacionado ao suporte/vendedor.  
-- **Confiança** = percepção de credibilidade/risco (preço, garantias, reputação).  
+- **Confiança (0-10)** = percepção de credibilidade/risco (preço, garantias, reputação).  
 - **Motivos**: normalizar em categorias:  
   - `preco | concorrencia | atendimento | produto_servico | confianca | prazo | estoque | pagamento | outros`.  
 - **Heurística de preço**: se houver menção comparativa → sinalizar `causa_principal = "preco"` e salvar `preco_mencionado`.  
 - **Risco de churn** (apenas se comprou):  
   - `true` quando: intenção de cancelamento, NPS ≤ 6, notas baixas (1–2), frustração clara.  
-- **Satisfação geral / qualidade de atendimento (1–5):**  
+- **Satisfação geral / qualidade de atendimento (1–10):**  
   - Usar nota explícita; se ausente, inferir pelo sentimento.  
 - **Campos “já na base”** (interesse_compra, horario_atendimento, follow_up, reengajado):  
   - Preencher se houver na conversa; caso contrário, `nao_identificado`.  
@@ -31,8 +31,8 @@ Sua missão é ler a conversa integral e **extrair** sinais quantitativos e qual
 ---
 
 ## 📤 Saída (JSON único)
-```json
 {
+  "nome_clente": "nome do cliente"
   "cliente_tipo": "comprou | nao_comprou | nao_identificado",
   "quantitativo": {
     "satisfacao_geral": 0,
