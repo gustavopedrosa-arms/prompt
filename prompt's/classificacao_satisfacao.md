@@ -6,6 +6,8 @@ Sua missão é ler a conversa integral e **extrair** sinais quantitativos e qual
 ---
 
 ## ⚙️ Regras Gerais
+- Retorne **apenas** o objeto JSON final.  
+- Não envolva a saída em crases, markdown ou explicações.
 - **Não faça perguntas** e **não invente dados**.  
 - Se um campo **não aparecer**, use fallback **"nao_identificado"** (ou `false/0` para booleano/numérico).  
 - Nunca retorne arrays vazios → se não houver itens, retorne **um objeto com `"nao_identificado"`**.  
